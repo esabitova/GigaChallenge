@@ -6,13 +6,13 @@ Project created using Design Pattern approach.
 
 ## Tests Scenarios
 
-Step 1: open start page [https://www.google.com/ ]
-Step 2: Accept CookiesAlert
-Step 3: Input in Search field box: "Giga Berlin" and click button "Google Search" -> result list
-Step 4: Click on Wikipedia link in result list (with text "Giga Berlin - Wikipedia") -> open Wikipedia Page
-Step 5: Find Coordinates of the location and Logistics and Site Concerns data. -> assertion
-Step 6: CTRL+Click on coordinates link of the location -> open new Tab with Geo Links
-Step 7: Click on Google Maps Icon -> open Google Map Page with location of the Giga Berlin
+1. open start page [https://www.google.com/ ]
+2. Accept CookiesAlert
+3. Input in Search field box: "Giga Berlin" and click button "Google Search" -> result list
+4. Click on Wikipedia link in result list (with text "Giga Berlin - Wikipedia") -> open Wikipedia Page
+5. Find Coordinates of the location and Logistics and Site Concerns data. -> assertion
+6. CTRL+Click on coordinates link of the location -> open new Tab with Geo Links
+7. Click on Google Maps Icon -> open Google Map Page with location of the Giga Berlin
 
 ## Prerequisites Software/Tools
 
@@ -24,6 +24,7 @@ Step 7: Click on Google Maps Icon -> open Google Map Page with location of the G
 
 ## Installation/Running Tests
 
+clone https://github.com/esabitova/GigaChallenge.git
 
 ## Contributors
 

@@ -9,10 +9,10 @@ public class WikipediaPage extends PageObject {
 
     @FindBy(id = "searchInput")
     private WebElement searchBox;
+
     @FindBy(id="searchButton")
     private WebElement searchBtn;
-    @FindBy(xpath = "//*[@id=\"js-link-box-en\"]/strong")
-    private WebElement englishLanguage;
+
     @FindBy(xpath = "//*[@id=\"mp-welcome\"]/a")
     private WebElement welcomeWiki;
 
@@ -24,13 +24,10 @@ public class WikipediaPage extends PageObject {
         return welcomeWiki;
     }
 
-    public GigaBerlinPage searchGigaBerlinPage() throws Exception {
-//        clickOnWebElement(englishLanguage);
+    public void searchGigaBerlinPage() throws Exception {
         sendTextToWebElement(searchBox, "Giga Berlin");
         takeScreenShot(driver);
         clickOnWebElement(searchBtn);
         takeScreenShot(driver);
-
-        return new GigaBerlinPage(driver);
     }
 }

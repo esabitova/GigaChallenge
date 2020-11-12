@@ -13,9 +13,8 @@ public class GeoCoordinatesPage extends PageObject {
         super(driver);
     }
 
-    public GoogleMapPage googleMapLocation() throws Exception {
+    public void googleMapLocation() throws Exception {
         clickOnWebElement(googleMapLink);
         takeScreenShot(driver);
-        return new GoogleMapPage(driver);
     }
 }

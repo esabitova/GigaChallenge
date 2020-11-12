@@ -20,22 +20,16 @@ public class GooglePage extends PageObject {
     @FindBy(xpath = "//*[@id=\"rso\"]/div[2]/div/div[1]/a/h3/span")
     private WebElement resultLink;
 
-
     public GooglePage(WebDriver driver) {
         super(driver);
     }
 
-    public WikipediaPage searchWikipediaPage() throws Exception {
+    public void searchWikipediaPage() throws Exception {
         sendTextToWebElement(searchBox, "wikipedia.com");
         takeScreenShot(driver);
         clickOnWebElement(searchBtn);
         takeScreenShot(driver);
         clickOnWebElement(resultLink);
         takeScreenShot(driver);
-
-        return new WikipediaPage(driver);
     }
-
-
-
 }

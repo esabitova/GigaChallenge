@@ -1,4 +1,4 @@
-## web-automation
+## Kollex Automation Challenge
 
 This is the web test automation project for Kollex Automation Challenge. 
 It was built using Java 13, Selenium 3 and JUnit4.
@@ -6,7 +6,7 @@ Project created using Design Pattern approach.
 
 ## Tests Scenarios
 
-1. open start page [https://www.google.com/ ]
+1. open start page [https://www.google.com/]
 2. Accept CookiesAlert
 3. Input in Search field box: "Giga Berlin" and click button "Google Search" -> result list
 4. Click on Wikipedia link in result list (with text "Giga Berlin - Wikipedia") -> open Wikipedia Page

@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * Class implements the base test methods and fields.
  */
 
-public class FunctionalTest {
+public class BaseTest {
     protected static WebDriver driver;
 
     /**
@@ -46,14 +46,14 @@ public class FunctionalTest {
 
     }
 
-    @After
-    public void cleanUp() {
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        	driver.close();
-    }
+//    @After
+//    public void cleanUp() {
+//    }
+//
+//    @AfterClass
+//    public static void tearDown() {
+//        	driver.close();
+//    }
 
     /**
      * method for screenshots when test is failed

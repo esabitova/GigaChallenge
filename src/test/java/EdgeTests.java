@@ -1,7 +1,6 @@
-import gigaberlin.driver.ChromeWebDriver;
 import gigaberlin.driver.EdgeWebDriver;
 import gigaberlin.pages.GeoCoordinatesPage;
-import gigaberlin.pages.GigaBerlinWikipediaPage;
+import gigaberlin.pages.GigaBerlinPage;
 import gigaberlin.pages.GoogleMapPage;
 import gigaberlin.pages.GooglePage;
 import gigaberlin.util.PropertiesLoader;
@@ -25,7 +24,7 @@ public class EdgeTests {
     protected static WebDriver driver;
 
     GooglePage googlePage = new GooglePage(driver);
-    GigaBerlinWikipediaPage gigaBerlinPage = new GigaBerlinWikipediaPage(driver);
+    GigaBerlinPage gigaBerlinPage = new GigaBerlinPage(driver);
     GeoCoordinatesPage geoCoordinatesPage = new GeoCoordinatesPage(driver);
     GoogleMapPage googleMapPage = new GoogleMapPage(driver);
 
@@ -51,7 +50,7 @@ public class EdgeTests {
     public void test_searchWikipediaChrome() throws Exception {
         driver.get(PropertiesLoader.loadProperty("url"));
         cookiesAcceptance(driver);
-        googlePage.searchWikiGigaBerlinPage();
+        googlePage.searchWikipediaPage();
 
         assertTrue(gigaBerlinPage.getCoordinates().isEnabled());
         assertEquals("Logistics", gigaBerlinPage.getLogisticsData().getText());
@@ -64,7 +63,7 @@ public class EdgeTests {
     }
 
     public void cookiesAcceptance(WebDriver webDriver) {
-        webDriver.switchTo().frame(1);
+        webDriver.switchTo().frame(0);
         webDriver.findElement(By.xpath("//*[@id=\"introAgreeButton\"]/span/span")).click();
     }
 

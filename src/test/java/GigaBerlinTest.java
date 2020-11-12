@@ -1,11 +1,8 @@
-import gigaberlin.pages.GeoCoordinatesPage;
-import gigaberlin.pages.GoogleMapPage;
-import gigaberlin.pages.GooglePage;
-import gigaberlin.pages.GigaBerlinWikipediaPage;
+import gigaberlin.pages.*;
 import gigaberlin.util.PropertiesLoader;
 import org.junit.Before;
 import org.junit.Test;
-import utils.FunctionalTest;
+import utils.BaseTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -15,9 +12,10 @@ import static org.junit.Assert.assertTrue;
  * Class for tests.
  */
 
-public class BasicTest extends FunctionalTest {
+public class GigaBerlinTest extends BaseTest {
     GooglePage googlePage=new GooglePage(driver);
-    GigaBerlinWikipediaPage gigaBerlinPage = new GigaBerlinWikipediaPage(driver);
+    WikipediaPage wikipediaPage = new WikipediaPage(driver);
+    GigaBerlinPage gigaBerlinPage = new GigaBerlinPage(driver);
     GeoCoordinatesPage geoCoordinatesPage = new GeoCoordinatesPage(driver);
     GoogleMapPage googleMapPage = new GoogleMapPage(driver);
 
@@ -30,7 +28,12 @@ public class BasicTest extends FunctionalTest {
     public void test_searchWikipediaChrome() throws Exception {
         driver.get(PropertiesLoader.loadProperty("url"));
         googlePage.cookiesAcceptance(driver);
-        googlePage.searchWikiGigaBerlinPage();
+        googlePage.searchWikipediaPage();
+
+        assertTrue(wikipediaPage.getWelcomeWiki().isDisplayed());
+        assertEquals("Wikipedia", wikipediaPage.getWelcomeWiki().getText());
+
+        wikipediaPage.searchGigaBerlinPage();
 
         assertTrue(gigaBerlinPage.getCoordinates().isEnabled());
         assertEquals("Logistics", gigaBerlinPage.getLogisticsData().getText());

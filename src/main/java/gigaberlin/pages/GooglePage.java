@@ -17,7 +17,7 @@ public class GooglePage extends PageObject {
     @FindBy(xpath = "//*[@id=\"tsf\"]/div[2]/div[1]/div[2]/div[2]/div[2]/center/input[1]")
     private WebElement searchBtn;
 
-    @FindBy(xpath = "//span[contains(text(),'Giga Berlin - Wikipedia')]")
+    @FindBy(xpath = "//*[@id=\"rso\"]/div[2]/div/div[1]/a/h3/span")
     private WebElement resultLink;
 
 
@@ -25,15 +25,15 @@ public class GooglePage extends PageObject {
         super(driver);
     }
 
-    public GigaBerlinWikipediaPage searchWikiGigaBerlinPage() throws Exception {
-        sendTextToWebElement(searchBox, "Giga Berlin");
+    public WikipediaPage searchWikipediaPage() throws Exception {
+        sendTextToWebElement(searchBox, "wikipedia.com");
         takeScreenShot(driver);
         clickOnWebElement(searchBtn);
         takeScreenShot(driver);
         clickOnWebElement(resultLink);
         takeScreenShot(driver);
 
-        return new GigaBerlinWikipediaPage(driver);
+        return new WikipediaPage(driver);
     }
 
 

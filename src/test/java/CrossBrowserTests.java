@@ -2,7 +2,7 @@ import gigaberlin.driver.Browser;
 import gigaberlin.driver.DriverFactory;
 import gigaberlin.driver.OSystem;
 import gigaberlin.pages.GeoCoordinatesPage;
-import gigaberlin.pages.GigaBerlinWikipediaPage;
+import gigaberlin.pages.GigaBerlinPage;
 import gigaberlin.pages.GoogleMapPage;
 import gigaberlin.pages.GooglePage;
 import gigaberlin.util.PropertiesLoader;
@@ -50,14 +50,14 @@ public class CrossBrowserTests {
 
 
     GooglePage googlePage = new GooglePage(driver);
-    GigaBerlinWikipediaPage gigaBerlinPage = new GigaBerlinWikipediaPage(driver);
+    GigaBerlinPage gigaBerlinPage = new GigaBerlinPage(driver);
     GeoCoordinatesPage geoCoordinatesPage=new GeoCoordinatesPage(driver);
     GoogleMapPage googleMapPage= new GoogleMapPage(driver);
 
     @Test
     public void test_searchWikipediaChrome() throws Exception {
         googlePage.cookiesAcceptance(driver);
-        googlePage.searchWikiGigaBerlinPage();
+        googlePage.searchWikipediaPage();
 
         assertTrue(gigaBerlinPage.getCoordinates().isEnabled());
         assertEquals("Logistics", gigaBerlinPage.getLogisticsData().getText());

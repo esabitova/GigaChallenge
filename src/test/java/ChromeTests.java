@@ -1,6 +1,6 @@
 import gigaberlin.driver.ChromeWebDriver;
 import gigaberlin.pages.GeoCoordinatesPage;
-import gigaberlin.pages.GigaBerlinWikipediaPage;
+import gigaberlin.pages.GigaBerlinPage;
 import gigaberlin.pages.GoogleMapPage;
 import gigaberlin.pages.GooglePage;
 import gigaberlin.util.PropertiesLoader;
@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.FunctionalTest;
+import utils.BaseTest;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,11 +21,11 @@ import static org.junit.Assert.assertTrue;
  * class for tests for ChromeBrowser
  */
 
-public class ChromeTests extends FunctionalTest {
+public class ChromeTests extends BaseTest {
     protected static WebDriver driver;
 
     GooglePage googlePage=new GooglePage(driver);
-    GigaBerlinWikipediaPage gigaBerlinPage = new GigaBerlinWikipediaPage(driver);
+    GigaBerlinPage gigaBerlinPage = new GigaBerlinPage(driver);
     GeoCoordinatesPage geoCoordinatesPage = new GeoCoordinatesPage(driver);
     GoogleMapPage googleMapPage = new GoogleMapPage(driver);
 
@@ -46,7 +46,7 @@ public class ChromeTests extends FunctionalTest {
     public void test_searchWikipediaChrome() throws Exception {
         driver.get(PropertiesLoader.loadProperty("url"));
         cookiesAcceptance(driver);
-        googlePage.searchWikiGigaBerlinPage();
+        googlePage.searchWikipediaPage();
 
         assertTrue(gigaBerlinPage.getCoordinates().isEnabled());
         assertEquals("Logistics", gigaBerlinPage.getLogisticsData().getText());

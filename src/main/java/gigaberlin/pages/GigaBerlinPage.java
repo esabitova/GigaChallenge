@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 
-public class GigaBerlinWikipediaPage extends PageObject {
+public class GigaBerlinPage extends PageObject {
 
 
 
@@ -22,7 +22,7 @@ public class GigaBerlinWikipediaPage extends PageObject {
     private WebElement siteConcerns;
 
 
-    public GigaBerlinWikipediaPage(WebDriver driver) {
+    public GigaBerlinPage(WebDriver driver) {
         super(driver);
     }
 

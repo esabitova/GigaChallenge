@@ -32,7 +32,7 @@ public class PageObject {
      * sets the MAXIMUM WAIT time for our conditional waits
      */
     public static int WAIT_TIMEOUT() {
-        return 5;
+        return 10;
     }
 
     public void sendTextToWebElement(WebElement element, String text) {

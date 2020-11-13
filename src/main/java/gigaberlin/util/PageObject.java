@@ -32,7 +32,7 @@ public class PageObject {
      * sets the MAXIMUM WAIT time for our conditional waits
      */
     public static int WAIT_TIMEOUT() {
-        return 5;
+        return 10;
     }
 
     public void sendTextToWebElement(WebElement element, String text) {
@@ -50,7 +50,7 @@ public class PageObject {
      * accepted cookies, but for cross-browser tests doesn't work because index of the frame is depends on browser.
      * Could be used with BasiTest class.
      */
-    public void cookiesAcceptance(WebDriver webDriver){
+    public void cookiesAcceptance(WebDriver webDriver) {
         webDriver.switchTo().frame(0);
         webDriver.findElement(By.xpath("//*[@id=\"introAgreeButton\"]/span/span")).click();
     }
@@ -81,20 +81,18 @@ public class PageObject {
     public void clickOnWebElement(WebElement element) {
         try {
             element.click();
-            System.out.println("LOGGING: clicked on element: " + cutXpathString(element));
         } catch (Exception e) {
-            System.out.println("LOGGING: Waiting for " + cutXpathString(element) + " to be visible!");
             waitForElementToBeVisible(driver, WAIT_TIMEOUT(), element);
             element.click();
         }
     }
 
 
-    public static void switchToTab(WebDriver driver, int tabNumber, int sleepTimer){
+    public static void switchToTab(WebDriver driver, int tabNumber, int sleepTimer) {
         ArrayList<String> tabs2 = new ArrayList<>(driver.getWindowHandles());
         sleep(sleepTimer);
         driver.switchTo().window(tabs2.get(tabNumber));
-            }
+    }
 
     /**
      * constant Thread.sleep method, that will ALWAYS wait for millis TIME
@@ -112,11 +110,11 @@ public class PageObject {
     /**
      * creates ScreenShots if step passed. Could be implements on every step of tests in the needed methods.
      */
-    public static void takeScreenShot(WebDriver webdriver) throws Exception{
-        TakesScreenshot scrShot =((TakesScreenshot)webdriver);
-        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+    public static void takeScreenShot(WebDriver webdriver) throws Exception {
+        TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
+        File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(SrcFile, new File("src/screenshots/"
                 + LocalDateTime.now().toString().substring(0, 19).replace(":", "-")
-                + "_"  + ".png"));
+                + "_" + ".png"));
     }
 }
